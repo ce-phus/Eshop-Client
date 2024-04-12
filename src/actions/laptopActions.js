@@ -34,7 +34,7 @@ export const getLaptopList = () => async (dispatch) => {
         })
 
         // call api
-        const { data } = await axios.get("http://51.222.174.97:8000/api/laptop/", {
+        const { data } = await axios.get("https://cephuseshop.co.ke/api/laptop/", {
             method: 'POST',
             mode: 'cors',
             headers:{
@@ -60,7 +60,7 @@ export const getLaptopDetails = (id) => async (dispatch) =>{
         })
 
         // call api
-        const { data } = await axios.get(`http://51.222.174.97:8000/api/laptop/${id}/`)
+        const { data } = await axios.get(`https://cephuseshop.co.ke/api/laptop/${id}/`)
         dispatch({
             type: LAPTOP_DETAILS_SUCCESS,
             payload: data
@@ -92,7 +92,7 @@ export const createlaptop = (laptop) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            "http://51.222.174.97:8000/api/laptop-create/",
+            "https://cephuseshop.co.ke/api/laptop-create/",
             laptop,
             config
         )
@@ -129,7 +129,7 @@ export const deletelaptop = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `http://51.222.174.97:8000/api/laptop-delete/${id}/`,
+            `https://cephuseshop.co.ke/api/laptop-delete/${id}/`,
             config
         )
 
@@ -165,7 +165,7 @@ export const updatelaptop = (id, laptop) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/api/laptop-update/${id}/`,
+            `https://cephuseshop.co.ke/api/laptop-update/${id}/`,
             laptop,
             config
         )
@@ -204,7 +204,7 @@ export const changeDeliveryStatus = (id, breakfast) => async (dispatch, getState
 
         // api call
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/change-order-status/${id}/`,
+            `https://cephuseshop.co.ke/account/change-order-status/${id}/`,
             breakfast,
             config
         )

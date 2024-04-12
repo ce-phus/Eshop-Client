@@ -68,7 +68,7 @@ import {
         }
   
         const { data } = await axios.post(
-            'http://51.222.174.97:8000/account/login/',
+            'https://cephuseshop.co.ke/account/login/',
             { 'username': username, 'password': password },
             config
         )
@@ -111,7 +111,7 @@ import {
             }
         }
   
-        const { data } = await axios.post(`http://51.222.174.97:8000/account/register/`,
+        const { data } = await axios.post(`https://cephuseshop.co.ke/account/register/`,
             { 'username': username, 'email': email, 'password': password, "confirm_password":confirm_password},
             config
         )
@@ -156,7 +156,7 @@ import {
         }
   
         // call api
-        const { data } = await axios.get("http://51.222.174.97:8000/payments/check-token/", config)
+        const { data } = await axios.get("https://cephuseshop.co.ke/payments/check-token/", config)
   
         dispatch({
             type: CHECK_TOKEN_VALID_SUCCESS,
@@ -201,7 +201,7 @@ import {
     //   console.log(`Using token: ${userInfo.token}`);
 
       // Construct the URL using userId
-      const { data } = await axios.get(`http://51.222.174.97:8000/account/user/${userId}/`, config);
+      const { data } = await axios.get(`https://cephuseshop.co.ke/account/user/${userId}/`, config);
   
       dispatch({
         type: USER_DETAILS_SUCCESS,
@@ -242,7 +242,7 @@ import {
   
         // call api
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/user_update/${userInfo.id}/`,
+            `https://cephuseshop.co.ke/account/user_update/${userInfo.id}/`,
             {
                 "username": userData.username,
                 "email": userData.email,
@@ -287,7 +287,7 @@ import {
   
         // call api
         const { data } = await axios.post(
-            `http://51.222.174.97:8000/account/user_delete/${userData.id}/`,
+            `https://cephuseshop.co.ke/account/user_delete/${userData.id}/`,
             {
                 "password": userData.password
             },
@@ -328,7 +328,7 @@ import {
   
         // call api
         const { data } = await axios.get(
-            "http://51.222.174.97:8000/account/all-address-details/",
+            "https://cephuseshop.co.ke/account/all-address-details/",
             config
         )
   
@@ -366,7 +366,7 @@ import {
   
         // call api
         const { data } = await axios.get(
-            `http://51.222.174.97:8000/account/address-details/${id}/`,
+            `https://cephuseshop.co.ke/account/address-details/${id}/`,
             config
         )
   
@@ -405,7 +405,7 @@ import {
   
         // call api
         const { data } = await axios.post(
-            "http://51.222.174.97:8000/account/create-address/",
+            "https://cephuseshop.co.ke/account/create-address/",
             addressData,
             config
         )
@@ -444,7 +444,7 @@ import {
   
         // call api
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/update-address/${id}/`,
+            `https://cephuseshop.co.ke/account/update-address/${id}/`,
             addressData,
             config
         )
@@ -483,7 +483,7 @@ import {
   
         // call api
         const { data } = await axios.delete(
-            `http://51.222.174.97:8000/account/delete-address/${id}/`,
+            `https://cephuseshop.co.ke/account/delete-address/${id}/`,
             config
         )
   
@@ -520,7 +520,7 @@ import {
   
         // call api
         const { data } = await axios.get(
-            `http://51.222.174.97:8000/account/all-orders-list/`,
+            `https://cephuseshop.co.ke/account/all-orders-list/`,
             config
         )
   

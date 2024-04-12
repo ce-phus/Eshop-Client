@@ -34,7 +34,7 @@ export const getComputerPartsList = () => async (dispatch) => {
         })
 
         // call api
-        const { data } = await axios.get("http://51.222.174.97:8000/api/computerparts/", {
+        const { data } = await axios.get("https://cephuseshop.co.ke/api/computerparts/", {
             method: 'POST',
             mode: 'cors',
             headers:{
@@ -60,7 +60,7 @@ export const getComputerPartsDetails = (id) => async (dispatch) =>{
         })
 
         // call api
-        const { data } = await axios.get(`http://51.222.174.97:8000/api/computerparts/${id}/`)
+        const { data } = await axios.get(`https://cephuseshop.co.ke/api/computerparts/${id}/`)
         dispatch({
             type: COMPUTERPARTS_DETAILS_SUCCESS,
             payload: data
@@ -92,7 +92,7 @@ export const createcomputerparts = (parts) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            "http://51.222.174.97:8000/api/computerparts-create/",
+            "https://cephuseshop.co.ke/api/computerparts-create/",
             parts,
             config
         )
@@ -129,7 +129,7 @@ export const deletecomputerparts = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `http://51.222.174.97:8000/api/computerparts-delete/${id}/`,
+            `https://cephuseshop.co.ke/api/computerparts-delete/${id}/`,
             config
         )
 
@@ -165,7 +165,7 @@ export const updatecomputerparts = (id, parts) => async (dispatch, getState) => 
         }
 
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/api/computerparts-update/${id}/`,
+            `https://cephuseshop.co.ke/api/computerparts-update/${id}/`,
             parts,
             config
         )
@@ -204,7 +204,7 @@ export const changeDeliveryStatus = (id, breakfast) => async (dispatch, getState
 
         // api call
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/change-order-status/${id}/`,
+            `https://cephuseshop.co.ke/account/change-order-status/${id}/`,
             breakfast,
             config
         )

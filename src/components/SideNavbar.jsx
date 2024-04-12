@@ -10,6 +10,8 @@ import { FiShoppingCart } from "react-icons/fi";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,6 +25,20 @@ const Home = () => {
     dispatch(logout());
     navigate("/login");
   };
+
+  const handleAdminRedirect = async () => {
+    try {
+      const response = await axios.get('https://cephuseshop.co.ke/admin/', {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`
+        }
+      });
+      navigate("/admin");
+    } catch (error) {
+      console.error("Error accessing admin panel:", error);
+    }
+  };
+
 
   const menus = [
     { name: "dashboard", link: "/", icon: MdOutlineDashboard },
@@ -54,6 +70,7 @@ const Home = () => {
     },
     // Updated logout menu item
     { name: "Sign Out", onClick: logoutHandler, icon: FaSignOutAlt },
+    { name: "Admin Panel", onClick: handleAdminRedirect, icon: MdOutlineAdminPanelSettings },
   ];
 
   const [openMenu, setOpenMenu] = useState(null);

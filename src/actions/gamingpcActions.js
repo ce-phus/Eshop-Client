@@ -35,7 +35,7 @@ export const getGamingpcList = () => async (dispatch) => {
         })
 
         // call api
-        const { data } = await axios.get("http://51.222.174.97:8000/api/pc/", {
+        const { data } = await axios.get("https://cephuseshop.co.ke/api/pc/", {
             method: 'POST',
             mode: 'cors',
             headers:{
@@ -61,7 +61,7 @@ export const getGamingPcDetails = (id) => async (dispatch) =>{
         })
 
         // call api
-        const { data } = await axios.get(`http://51.222.174.97:8000/api/pc/${id}/`)
+        const { data } = await axios.get(`https://cephuseshop.co.ke/api/pc/${id}/`)
         dispatch({
             type: GAMINGPC_DETAILS_SUCCESS,
             payload: data
@@ -93,7 +93,7 @@ export const creategamingpc = (pc) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            "http://51.222.174.97:8000/api/pc-create/",
+            "https://cephuseshop.co.ke/api/pc-create/",
             breakfast,
             config
         )
@@ -130,7 +130,7 @@ export const deletegamingpc = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `http://51.222.174.97:8000/api/pc-delete/${id}/`,
+            `https://cephuseshop.co.ke/api/pc-delete/${id}/`,
             config
         )
 
@@ -166,7 +166,7 @@ export const updategamingpc = (id, pc) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/api/pc-update/${id}/`,
+            `https://cephuseshop.co.ke/api/pc-update/${id}/`,
             pc,
             config
         )
@@ -205,7 +205,7 @@ export const changeDeliveryStatus = (id, breakfast) => async (dispatch, getState
 
         // api call
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/change-order-status/${id}/`,
+            `https://cephuseshop.co.ke/account/change-order-status/${id}/`,
             breakfast,
             config
         )

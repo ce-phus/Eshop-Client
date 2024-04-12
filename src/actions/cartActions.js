@@ -24,7 +24,7 @@ export const addToCart = (item_type, item_id, quantity) => async (dispatch) => {
             quantity: quantity
         };
 
-        const response = await axios.post('http://51.222.174.97:8000/api/cart/', payload);
+        const response = await axios.post('https://cephuseshop.co.ke/api/cart/', payload);
         
         const { data } = response;
 
@@ -57,7 +57,7 @@ export const removeFromCart = (item_id) => async (dispatch) => {
             id: item_id           
         };
 
-        const { data } = await axios.post('http://51.222.174.97:8000/api/cart/', payload);
+        const { data } = await axios.post('https://51.222.174.97:8000/api/cart/', payload);
 
         dispatch({
             type: REMOVE_FROM_CART_SUCCESS,
@@ -81,7 +81,7 @@ export const getTotalPrice = () => async (dispatch, getState) => {
         try {
             dispatch({ type: GET_TOTAL_PRICE_REQUEST });
 
-            const { data } = await axios.get('http://51.222.174.97:8000/api/cart/');
+            const { data } = await axios.get('https://cephuseshop.co.ke/api/cart/');
 
             // Parse the total price as a number before dispatching the action
             const totalPrice = parseFloat(data.total_price);

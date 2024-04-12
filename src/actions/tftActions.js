@@ -37,7 +37,7 @@ export const getTftList= () => async (dispatch) => {
         })
 
         // call api
-        const { data } = await axios.get("http://51.222.174.97:8000/api/tft/", {
+        const { data } = await axios.get("https://cephuseshop.co.ke/api/tft/", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -63,7 +63,7 @@ export const getTftDetails = (id) => async (dispatch) =>{
         })
 
         // call api
-        const { data } = await axios.get(`http://51.222.174.97:8000/api/tft/${id}`)
+        const { data } = await axios.get(`https://cephuseshop.co.ke/api/tft/${id}`)
         dispatch({
             type: TFT_DETAILS_SUCCESS,
             payload: data
@@ -95,7 +95,7 @@ export const createtft = (tft) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            "http://51.222.174.97:8000/api/tft-create/",
+            "https://cephuseshop.co.ke/api/tft-create/",
             tft,
             config
         )
@@ -132,7 +132,7 @@ export const deletetft = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `http://51.222.174.97:8000/api/tft-delete/${id}`,
+            `https://cephuseshop.co.ke/api/tft-delete/${id}`,
             config
         )
 
@@ -168,7 +168,7 @@ export const updatetft = (id, tft) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/api/tft-update/${id}/`,
+            `https://cephuseshop.co.ke/api/tft-update/${id}/`,
             breakfast,
             config
         )
@@ -206,7 +206,7 @@ export const changeDeliveryStatus = (id, breakfast) => async (dispatch, getState
 
         // api call
         const { data } = await axios.put(
-            `http://51.222.174.97:8000/account/change-order-status/${id}/`,
+            `https://cephuseshop.co.ke/account/change-order-status/${id}/`,
             breakfast,
             config
         )
