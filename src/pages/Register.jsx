@@ -37,7 +37,7 @@ const RegisterPage = () => {
 
   return (
     <div className='justify-items-center mt-10'>
-            <div className='grid h-screen place-items-center'>
+            <div className='grid h-screen place-items-center pl-10 md:pl-10'>
                 <div className=' '>
                     <h1 className='text-2xl font-semibold mb-10 grid justify-items-center text-primary'>Sign Up</h1>
                     {message && <Error variant='danger'>{message}</Error>}

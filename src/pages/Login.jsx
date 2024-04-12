@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <div className='text-light mt-12 grid h-screen place-items-center'>
       <div className='justify-content-md-center'>
-      <div className='grid justify-items-center'>
+      <div className='grid justify-items-center pl-10 md:pl-10'>
           <h1 className='text-2xl mb-5 font-semibold text-secondary'>Sign In</h1>
           {error && <Error variant='danger'>{error}</Error>}
           <form className='max-w-sm mx-auto' onSubmit={submitHandler}>
