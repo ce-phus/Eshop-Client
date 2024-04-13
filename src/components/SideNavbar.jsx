@@ -25,7 +25,7 @@ const Home = () => {
 
   const handleAdminRedirect = () => {
     if (userInfo && userInfo.token) {
-        window.open('http://localhost:8000/admin/', '_blank');
+        window.open('https://cephuseshop.co.ke/admin/', '_blank');
     } else {
         alert("User is not authorized or not logged in");
     }
