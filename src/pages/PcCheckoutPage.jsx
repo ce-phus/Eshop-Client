@@ -27,7 +27,7 @@ const PcCheckoutPage = () => {
   const pcDetailReducer = useSelector(state=> state.pcDetailReducer);
   const { loading, error, pc } = pcDetailReducer
 
-  const baseUrl = 'http://localhost:8000';
+  const baseUrl = 'https://cephuseshop.co.ke';
   const fullImageUrl = baseUrl + pc.image;
 
   useEffect(() => {
