@@ -26,18 +26,14 @@ const Home = () => {
     navigate("/login");
   };
 
-  const handleAdminRedirect = async () => {
-    try {
-      const response = await axios.get('https://cephuseshop.co.ke/admin/', {
-        headers: {
-          Authorization: `Bearer ${userInfo.token}`
-        }
-      });
-      navigate("/admin");
-    } catch (error) {
-      console.error("Error accessing admin panel:", error);
+  const handleAdminRedirect = () => {
+    if (userInfo && userInfo.token) {
+        // This directly changes the current window's location to your Django admin URL
+        window.open('https://cephuseshop.co.ke/admin/', '_blank');
+    } else {
+        console.error("User is not authorized or not logged in");
     }
-  };
+};
 
 
   const menus = [
