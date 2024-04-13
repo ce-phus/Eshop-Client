@@ -20,7 +20,7 @@ const CartPage = () => {
     dispatch(addToCart(item.type, item.id, item.quantity + 1)); // Use the addToCart action to add 1 to the quantity
   };
 
-  const baseUrl = 'http://localhost:8000';
+  const baseUrl = 'http://cephuseshop.co.ke';
 
   return (
     <div className="container mx-auto p-10">

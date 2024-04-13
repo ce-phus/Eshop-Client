@@ -28,7 +28,7 @@ const CheckoutPage = () => {
   const laptopDetailReducer = useSelector(state=> state.laptopDetailReducer);
   const { loading, error, laptop } = laptopDetailReducer
 
-  const baseUrl = 'http://localhost:8000';
+  const baseUrl = 'http://cephuseshop.co.ke';
   const fullImageUrl = baseUrl + laptop.image;
 
   useEffect(() => {
