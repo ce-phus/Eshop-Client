@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { FaSignInAlt, FaSignOutAlt, FaShoppingBag } from "react-icons/fa";
@@ -8,18 +8,15 @@ import { AiOutlineUser } from "react-icons/ai";
 import { RiSettings4Line } from "react-icons/ri";
 import { FiShoppingCart } from "react-icons/fi";
 import { SiGnuprivacyguard } from "react-icons/si";
-import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cartReducer.cartItems || []);
-  // login reducer
-  const userLoginReducer = useSelector(state => state.userLoginReducer)
-  const { userInfo } = userLoginReducer
+  const userLoginReducer = useSelector(state => state.userLoginReducer);
+  const { userInfo } = userLoginReducer;
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -28,13 +25,11 @@ const Home = () => {
 
   const handleAdminRedirect = () => {
     if (userInfo && userInfo.token) {
-        // This directly changes the current window's location to your Django admin URL
-        window.open('https://cephuseshop.co.ke/admin/', '_blank');
+        window.open('http://localhost:8000/admin/', '_blank');
     } else {
-        console.error("User is not authorized or not logged in");
+        alert("User is not authorized or not logged in");
     }
-};
-
+  };
 
   const menus = [
     { name: "dashboard", link: "/", icon: MdOutlineDashboard },
@@ -77,19 +72,12 @@ const Home = () => {
     setOpenMenu(openMenu === menuName ? null : menuName);
   };
 
+
   return (
     <section className="flex gap-6">
-      <div
-        className={`fixed bg-[#0e0e0e] min-h-screen ${
-          open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4 z-10`}
-      >
+      <div className={`fixed bg-[#0e0e0e] min-h-screen ${open ? "w-72" : "w-16"} duration-500 text-gray-100 px-4 z-10`}>
         <div className="py-3 flex justify-end">
-          <HiMenuAlt3
-            size={26}
-            className="cursor-pointer"
-            onClick={() => setOpen(!open)}
-          />
+          <HiMenuAlt3 size={26} className="cursor-pointer" onClick={() => setOpen(!open)} />
           <Link to="/cart" className="">
             <FiShoppingCart size="20" />
             {cartItems.length > 0 && (
@@ -100,31 +88,39 @@ const Home = () => {
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-4 relative">
-        {menus.map((menu, i) => (
-          <div key={i}>
-            <Link
-              to={menu.link} 
-              className={`${menu.margin && "mt-5"
-                } group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
-              onClick={() => menu.subMenus && toggleSubMenu(menu.name)}
-            >
-              <div>{React.createElement(menu.icon, { size: "20" })}</div>
-              <h2 className={`whitespace-pre ${!open && "opacity-0"}`}>{menu.name}</h2>
-            </Link>
-            {/* Only show submenus if 'open' and 'openMenu' conditions are met */}
-            {open && openMenu === menu.name &&
-              menu.subMenus?.map((subMenu, index) => (
-                <Link
-                  to={subMenu.link}
-                  key={index}
-                  className="pl-14 py-2 block text-sm text-gray-200 hover:bg-gray-800"
+          {menus.map((menu, i) => (
+            <div key={i}>
+              {menu.onClick ? (
+                <button
+                  onClick={menu.onClick}
+                  className={`${menu.margin && "mt-5"} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
                 >
-                  {subMenu.name}
+                  <div>{React.createElement(menu.icon, { size: "20" })}</div>
+                  <h2 className={`whitespace-pre ${!open && "opacity-0"}`}>{menu.name}</h2>
+                </button>
+              ) : (
+                <Link
+                  to={menu.link} 
+                  className={`${menu.margin && "mt-5"} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
+                  onClick={() => menu.subMenus && toggleSubMenu(menu.name)}
+                >
+                  <div>{React.createElement(menu.icon, { size: "20" })}</div>
+                  <h2 className={`whitespace-pre ${!open && "opacity-0"}`}>{menu.name}</h2>
                 </Link>
-              ))}
-          </div>
-        ))}
-
+              )}
+              {/* Only show submenus if 'open' and 'openMenu' conditions are met */}
+              {open && openMenu === menu.name &&
+                menu.subMenus?.map((subMenu, index) => (
+                  <Link
+                    to={subMenu.link}
+                    key={index}
+                    className="pl-14 py-2 block text-sm text-gray-200 hover:bg-gray-800"
+                  >
+                    {subMenu.name}
+                  </Link>
+                ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
