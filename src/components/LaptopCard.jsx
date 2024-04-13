@@ -9,7 +9,7 @@ import { addToCart } from "../actions/cartActions";
 
 const LaptopCard = ({ index, laptop, addToCart }) => {
 
-    const baseUrl = 'http://localhost:8000';
+    const baseUrl = 'https://cephuseshop.co.ke';
     const fullImageUrl = baseUrl + laptop.image;
     const item_type = 'laptop'
     const [quantity, setQuantity] = useState(1); // State to manage quantity
