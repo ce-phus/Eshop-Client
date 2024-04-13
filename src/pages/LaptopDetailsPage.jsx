@@ -27,7 +27,7 @@ const LaptopDetailsPage = ({ addToCart}) => {
   const deleteLaptopReducer = useSelector(state=>state.deleteLaptopReducer)
   const { success:laptopDeletionSuccess } = deleteLaptopReducer
 
-  const baseUrl = 'http://cephuseshop.co.ke';
+  const baseUrl = 'http://cephuseshop.co.ke/';
   const fullImageUrl = baseUrl + laptop.image;
 
   const item_type = 'laptops'

@@ -27,7 +27,7 @@ const PcDetailsPage = () => {
   const deleteGamingpcReducer = useSelector(state=>state.deleteGamingpcReducer)
   const { success:pcDeletionSuccess } = deleteGamingpcReducer
 
-  const baseUrl = 'http://cephuseshop.co.ke';
+  const baseUrl = 'http://cephuseshop.co.ke/';
   const fullImageUrl = baseUrl + pc.image;
 
   const item_type = 'gamingpc'
