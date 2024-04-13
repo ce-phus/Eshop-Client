@@ -55,7 +55,7 @@ const LaptopDetailsPage = ({ addToCart}) => {
 
   if (laptopDeletionSuccess) {
     alert("Laptop successfully deleted.");
-    router('/');
+    router.navigate('/');
     dispatch({
       type: DELETE_LAPTOP_RESET
     })

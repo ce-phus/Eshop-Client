@@ -55,7 +55,7 @@ const PcDetailsPage = () => {
 
   if (pcDeletionSuccess) {
     alert("Gaming Pcpc successfully deleted.");
-    router('/');
+    router.navigate('/');
     dispatch({
       type: DELETE_GAMINGPC_RESET
     })
